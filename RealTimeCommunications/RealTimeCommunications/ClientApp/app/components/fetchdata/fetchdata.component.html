@@ -1,0 +1,31 @@
+<h1>Weather forecast</h1>
+
+<p>This component demonstrates communication using more complex data type.</p>
+
+<p *ngIf="!forecasts"><em>Loading...</em></p>
+
+<table class='table' *ngIf="forecasts">
+    <thead>
+        <tr>
+            <th>Date</th>
+            <th>Temp. (C)</th>
+            <th>Temp. (F)</th>
+            <th>Summary</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let forecast of forecasts">
+            <td>{{ forecast.dateFormatted }}</td>
+            <td>{{ forecast.temperatureC }}</td>
+            <td>{{ forecast.temperatureF }}</td>
+            <td>{{ forecast.summary }}</td>
+        </tr>
+    </tbody>
+</table>
+
+<div>
+    <input [(ngModel)]="newForecast.dateFormatted" placeholder="Day">
+    <input [(ngModel)]="newForecast.temperatureC" placeholder="Temperature C">
+    <input [(ngModel)]="newForecast.summary" placeholder="Summary">
+    <button (click)="sendForecast()">Send forecast</button>
+</div>

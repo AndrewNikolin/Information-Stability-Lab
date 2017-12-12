@@ -1,0 +1,13 @@
+<h1>Real-time chat</h1>
+
+<p>This is a simple page with public chat.</p>
+
+<ul id="discussion">
+    <li *ngFor="let message of messages">{{message}} <!--: {{decodeMsg(message)}}--></li>
+</ul>
+
+<div>
+    <input [(ngModel)]="newMessage" (keyUp.enter)="sendMessage()" placeholder="Message">
+    <button (click)="sendMessage()">Send</button>
+    <button (click)="clearHistory()">Clear history</button>
+</div>
